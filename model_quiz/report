@@ -1,0 +1,12 @@
+1.使用的算法
+
+ensemble model包括Lightgbm,LR和SVM。
+
+2.建模的思路
+
+2.1 数据分析：统计缺失值，train中缺失值超过98%的共1499维，直接丢弃；特征选择，通过lightgbm对特征重要性评分并挑选重要特征，画出这些特征和label的violin plot，进一步手动筛选重要特征；填补缺失值，如果feature中类别小于s，视作离散型变量，填充众数，如果feature中类别大于s，视作连续型变量，填充平均数。
+
+2.2 模型选择：ensemble model集成性能较好的三个模型：lightgbm，lr和SVM。
+
+3.AUC: 0.731
+4.KS: 0.461
